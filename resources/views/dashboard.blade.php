@@ -1,14 +1,33 @@
 <x-app-layout>
-    <main class="py-12" >
+    <main class="py-6 px-6 text-gray-300">
 
-        <div class=" flex flex-col grid gap-4 border-solid " >
-            <div class="text-gray-300 border-2 border-sky-500">
-                <h1>Olá, Vinicius!</h1>
-                <p>Atualizações de Pagamentos</p>
+        {{-- section "header" --}}
+        <div class="flex-col grid gap-4 border-solid">
+            <div class="flex flex-row justify-around">
+                <h1 class="text-3xl">Dashboard</h1>
+                <input type="search" name="search-dashboard" id="search-dashboard" placeholder="Pesquisar"  class="flex-row rounded-lg bg-sky-950 text-gray-400 w-1/4">
             </div>
 
-            <div class=" grid justify-items-center text-gray-300 flex justify-center" >
-                <table class="table-auto border-2 border-sky-500 gap-2">
+            <div class="flex flex-row justify-center gap-24">
+                <div class="bg-slate-800 rounded-xl py-3 px-8">
+                    <h2 class="pb-2">Total de Lucros:</h2>
+                    <p>R$ 00,00</p>
+                </div>
+
+                <div  class="bg-slate-800 rounded-xl py-3 px-8">
+                    <h2 class="align-top">Total de Gastos:</h2>
+                    <p>R$ 00,00</p>
+                </div>
+            </div>
+        
+
+
+        
+
+
+        {{-- section "recent sales" --}}
+            <div class=" grid justify-items-center flex justify-center" >
+                <table class="table-auto">
                     <thead>
                         <tr>
                             <th>Data</th>
