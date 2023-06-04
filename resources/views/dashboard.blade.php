@@ -1,14 +1,14 @@
 <x-app-layout>
     <main class="py-12" >
 
-        <div class=" flex flex-col grid gap-4 border-solid border-2 border-sky-500" >
+        <div class=" flex flex-col grid gap-4 border-solid " >
             <div class="text-gray-300 border-2 border-sky-500">
                 <h1>Olá, Vinicius!</h1>
-                <h2>Atualizações de Pagamentos</h2>
+                <p>Atualizações de Pagamentos</p>
             </div>
 
-            <div class="text-gray-300 border-2 border-sky-500 " >
-                <table class="table-auto">
+            <div class=" grid justify-items-center text-gray-300 flex justify-center" >
+                <table class="table-auto border-2 border-sky-500 gap-2">
                     <thead>
                         <tr>
                             <th>Data</th>
