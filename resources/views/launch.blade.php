@@ -1,3 +1,4 @@
+
 <x-app-layout>
     <main class="flex justify-center">
         <div class="flex flex-col w-1/4 justify-center">
@@ -12,7 +13,7 @@
             <input type="date" name="date" id="date">
             <div>
                 <label for="number">Categoria:</label>
-                <a href="{{route('cartegories.create')}}">Adicionar Categoria</a>
+                <a href="/categories/create">Adicionar Categoria</a>
             </div>
             <select name="" id="">
                 <option value="">escolha a categoria...</option>
