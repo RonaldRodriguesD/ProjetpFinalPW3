@@ -32,7 +32,7 @@
                                   <tr>
                                       <th scope="col" class="px-6 py-4 text-center">Data</th>
                                       <th scope="col" class="px-6 py-4 text-center">Valor (R$)</th>
-                                      <th scope="col" class="px-6 py-4 text-center">Tag</th>
+                                      <th scope="col" class="px-6 py-4 text-center">Categoria</th>
                                   </tr>
                               </thead>
                               <tbody>

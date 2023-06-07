@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Register;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::all();
+        return view('launch',['categories'=>$categories]);
     }
 
     /**
