@@ -2,7 +2,8 @@
     <main class="flex flex-col justify-center items-center py-10">
         <div class="flex flex-col">
             <h1>Adicionar nova categoria:</h1>
-            <form class="flex flex-row" action="">
+            <form class="flex flex-row" action="/categories" method="POST">
+                @csrf
                 <label for="">Nome da categoria:</label>
                 <input type="text" name="category" placeholder="Ex: Alimentação">
                 <input type="submit">
@@ -18,15 +19,19 @@
                                 <tr>
                                     <th scope="col" class="px-6 py-4 text-center">Categorias</th>
                                     <th scope="col" class="px-6 py-4 text-center"></th>
-                                    <th scope="col" class="px-6 py-4 text-center"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach ($categories as $category)
                                     <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
-                                        <td class="whitespace-nowrap px-6 py-4 text-center">{{$category->name}}</td>
-                                        <td class="whitespace-nowrap px-6 py-4 text-center"><a class="bg-red-500" href="">Alterar</a></td> 
-                                        <td class="whitespace-nowrap px-6 py-4 text-center"><a class="bg-cyan-500" href="">Deletar</a></td>
+                                        <td class="whitespace-nowrap px-6 py-4 text-center">{{$category->name}}</td> 
+                                        <td class="whitespace-nowrap px-6 py-4 text-center">
+                                            <form action="/categories/{{$category->id}}" method="POST">
+                                                @csrf
+                                                @method("delete")
+                                                <input class="bg-red-500" type="submit" value="Excluir">
+                                            </form>
+                                        </td>
                                     </tr>  
                                 @endforeach
                             </tbody>
