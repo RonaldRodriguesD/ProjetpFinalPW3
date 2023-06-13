@@ -57,6 +57,11 @@
                   </div>
               </div>
           </div>
+          
+            <figure class="highcharts-figure">
+                <div id="container"></div>
+            </figure>
+
       </div>
     </main>
 </x-app-layout>
