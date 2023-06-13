@@ -13,6 +13,14 @@
         <link rel="stylesheet" href="/style.css">
 
         <!-- Scripts -->
+        <script>
+            function transformarVirgulaPonto() {
+                var valor = document.getElementById("value").value;
+                var novoValor = valor.replace(",", ".");
+                document.getElementById("value").value = novoValor;
+            }
+        </script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="font-sans antialiased">
