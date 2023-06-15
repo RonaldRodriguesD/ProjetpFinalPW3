@@ -1,8 +1,8 @@
 <x-app-layout>
-    <main class="flex flex-col justify-center items-center py-10">
-        <div class="flex flex-col">
+    <main class="flex flex-row justify-center items-center">
+        <div class="flex flex-col text-center border-2 border-purple-700  mt-40 bg-violet-400 p-4">
             <h1>Adicionar nova categoria:</h1>
-            <form class="flex flex-row" action="/categories" method="POST">
+            <form class="flex flex-col" action="/categories" method="POST">
                 @csrf
                 <label for="">Nome da categoria:</label>
                 <input type="text" name="category" placeholder="Ex: Alimentação">
