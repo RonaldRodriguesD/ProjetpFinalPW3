@@ -17,7 +17,7 @@
                     </x-nav-link>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('launch')" :active="request()->routeIs('launch')">
+                    <x-nav-link :href="route('registers.create')" :active="request()->routeIs('registers.create')">
                         {{ __('Registrar Transações') }}
                     </x-nav-link>
                 </div>
@@ -83,7 +83,7 @@
         </div>
 
         <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('launch')" :active="request()->routeIs('launch')">
+            <x-responsive-nav-link :href="route('registers.create')" :active="request()->routeIs('registers.create')">
                 {{ __('Registrar Transações') }}
             </x-responsive-nav-link>
         </div>

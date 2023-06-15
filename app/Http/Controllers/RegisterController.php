@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\Register;
 use Illuminate\Http\Request;
+use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class RegisterController extends Controller
 {
@@ -13,8 +15,7 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('launch',['categories'=>$categories]);
+        
     }
 
     /**
@@ -22,7 +23,8 @@ class RegisterController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('launch',['categories'=>$categories]);
     }
 
     /**
@@ -30,7 +32,14 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $register = new Register;
+        $register -> value = $request->value;
+        $register -> category = $request->category;
+        $register -> attribute = $request->attribute;
+        $register -> type = $request->type;
+        $register -> date = $request->date;
+        $register -> save();
+        return redirect('/registers/create');
     }
 
     /**
@@ -65,3 +74,13 @@ class RegisterController extends Controller
         //
     }
 }
+
+// if ($register->type){
+//     for($i = 1; $i <= 12; $i ++){
+//         $register -> date = $request->date->addDays(30);
+//     }
+//     $register -> save();
+// } else{
+//     $register -> date = $request->date;
+//     $register -> save();
+// }
