@@ -36,21 +36,21 @@
                                   </tr>
                               </thead>
                               <tbody>
-                                  <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600 text-red-500">
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">01/06</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">125,50</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">Mercado</td>
-                                  </tr>
-                                  <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">05/06</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">1500,00</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">Salário</td>
-                                  </tr>
-                                  <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600  text-red-500">
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">10/06</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">500,00</td>
-                                    <td class="whitespace-nowrap px-6 py-4 text-center">Aluguel</td>
-                                  </tr>
+                                    @foreach ($registers as $register)
+                                        @if ($register->type == 1)
+                                            <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
+                                                <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category}}</td>
+                                            </tr>
+                                        @else
+                                        <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600  text-red-500">
+                                            <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category}}</td>
+                                        </tr>
+                                        @endif
+                                    @endforeach
                               </tbody>
                           </table>
                       </div>

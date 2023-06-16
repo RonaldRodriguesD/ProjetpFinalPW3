@@ -13,11 +13,12 @@ return new class extends Migration
     {
         Schema::create('registers', function (Blueprint $table) {
             $table->id();
-            $table->boolean('attribute');
+            $table->boolean('attribute')->nullable();
             $table->boolean('type');
             $table->decimal('value', 8, 2);
             $table->date('date')->nullable();
             $table->foreignId('category_id')->references('id')->on('categories');
+            $table->timestamps();
         });
     }
 

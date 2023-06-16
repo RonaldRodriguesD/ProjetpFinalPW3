@@ -15,7 +15,8 @@ class RegisterController extends Controller
      */
     public function index()
     {
-        
+        $registers = Register::all();
+        return view('dashboard',['registers'=>$registers]);
     }
 
     /**
@@ -34,11 +35,25 @@ class RegisterController extends Controller
     {
         $register = new Register;
         $register -> value = $request->value;
-        $register -> category = $request->category;
-        $register -> attribute = $request->attribute;
+        $register -> category_id = $request->category;
         $register -> type = $request->type;
-        $register -> date = $request->date;
-        $register -> save();
+        if ($request->attribute){
+            $date = $request->date;
+            for($i = 1; $i <= 12; $i ++){
+                $register = new Register;
+                $register -> value = $request->value;
+                $register -> category_id = $request->category;
+                $register -> attribute = $request->attribute;
+                $register -> type = $request->type;
+                $date = Carbon::parse($date)->addDays(30);
+                $register -> date =  $date;
+                $register -> save();
+            }
+        } else{
+            $register -> attribute = false;
+            $register -> date = $request->date;
+            $register -> save();
+        }
         return redirect('/registers/create');
     }
 
@@ -75,12 +90,3 @@ class RegisterController extends Controller
     }
 }
 
-// if ($register->type){
-//     for($i = 1; $i <= 12; $i ++){
-//         $register -> date = $request->date->addDays(30);
-//     }
-//     $register -> save();
-// } else{
-//     $register -> date = $request->date;
-//     $register -> save();
-// }
