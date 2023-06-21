@@ -17,8 +17,9 @@ return new class extends Migration
             $table->boolean('type');
             $table->decimal('value', 8, 2);
             $table->date('date')->nullable();
-            $table->foreignId('category_id')->references('id')->on('categories');
             $table->timestamps();
+            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('user_id')->references('id')->on('users');
         });
     }
 

@@ -4,8 +4,21 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
 
 class Register extends Model
 {
     use HasFactory;
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class)->withDefault(['name' => 'indefinida']);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }
