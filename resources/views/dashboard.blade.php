@@ -5,8 +5,6 @@
       <div class="flex-col grid gap-4 border-solid">
           <div class="flex flex-row justify-around">
               <h1 class="text-3xl">Dashboard</h1>
-              <input type="search" name="search-dashboard" id="search-dashboard" placeholder="Pesquisar"
-                  class="flex-row rounded-lg bg-sky-950 text-gray-400 w-1/4">
           </div>
 
           <div class="flex flex-row justify-center gap-24">
