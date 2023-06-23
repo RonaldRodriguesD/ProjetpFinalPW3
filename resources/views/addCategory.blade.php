@@ -6,7 +6,7 @@
                 @csrf
                 <label for="">Nome da categoria:</label>
                 <input type="text" name="category" placeholder="Ex: Alimentação" class="rounded-lg">
-                <input type="submit" class="bg-violet-400 rounded-lg px-4 py-2 ml-2 ease-out duration-200 hover:bg-violet-700 hover:text-sky-50 cursor-pointer">
+                <input type="submit" class="bg-violet-400 rounded-lg px-4 py-2 ml-2 ease-out duration-200 hover:bg-violet-700 hover:text-sky-50 cursor-pointer" value="Cadastrar">
             </form>
         </div>
         <div class="flex flex-col">

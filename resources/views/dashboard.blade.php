@@ -5,8 +5,6 @@
       <div class="flex-col grid gap-4 border-solid">
           <div class="flex flex-row justify-around">
               <h1 class="text-3xl">Dashboard</h1>
-              <input type="search" name="search-dashboard" id="search-dashboard" placeholder="Pesquisar"
-                  class="flex-row rounded-lg bg-sky-950 text-gray-400 w-1/4">
           </div>
 
           <div class="flex flex-row justify-center gap-24">
@@ -41,13 +39,13 @@
                                             <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
-                                                <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category}}</td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
                                             </tr>
                                         @else
                                         <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600  text-red-500">
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category}}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
                                         </tr>
                                         @endif
                                     @endforeach
@@ -58,7 +56,7 @@
               </div>
           </div>
           
-            <figure class="highcharts-figure">
+            <figure class="highcharts-figure" >
                 <div id="container"></div>
             </figure>
 

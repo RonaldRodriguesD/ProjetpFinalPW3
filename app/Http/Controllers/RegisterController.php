@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\Category;
 use App\Models\Register;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class RegisterController extends Controller
@@ -34,6 +35,7 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $register = new Register;
+        $register -> user_id = Auth::user()->id;
         $register -> value = $request->value;
         $register -> category_id = $request->category;
         $register -> type = $request->type;
@@ -41,6 +43,7 @@ class RegisterController extends Controller
             $date = $request->date;
             for($i = 1; $i <= 12; $i ++){
                 $register = new Register;
+                $register -> user_id = Auth::user()->id;
                 $register -> value = $request->value;
                 $register -> category_id = $request->category;
                 $register -> attribute = $request->attribute;
