@@ -26,10 +26,11 @@
                                     <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
                                         <td class="whitespace-nowrap px-10 py-2 text-center">{{$category->name}}</td> 
                                         <td class="whitespace-nowrap px-5 py-3 text-center">
-                                            <form action="/categories/{{$category->id}}" method="POST">
+                                            <form action="/categories/{{$category->id}}" id="deleteCategory" method="POST">
                                                 @csrf
                                                 @method("delete")
-                                                <input class="bg-red-400 text-black py-2 px-4 rounded-lg hover:bg-red-700 hover:text-white cursor-pointer ease-out duration-200 " type="submit" value="Excluir">
+                                                <button form="deleteCategory" class="bg-red-400 text-black py-2 px-4 rounded-lg hover:bg-red-700 hover:text-white cursor-pointer ease-out duration-200 " type="submit" 
+                                                onclick="if(confirm('Deseja realmente excluir esta categoria?')){ }else{return false;}">Excluir</button>
                                             </form>
                                         </td>
                                     </tr>  
