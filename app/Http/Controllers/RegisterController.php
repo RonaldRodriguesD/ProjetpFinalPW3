@@ -35,27 +35,27 @@ class RegisterController extends Controller
     public function store(Request $request)
     {
         $register = new Register;
-        $register -> user_id = Auth::user()->id;
-        $register -> value = $request->value;
-        $register -> category_id = $request->category;
-        $register -> type = $request->type;
+        $register->user_id = Auth::user()->id;
+        $register->value = $request->value;
+        $register->category_id = $request->category;
+        $register->type = $request->type;
         if ($request->attribute){
             $date = $request->date;
             for($i = 1; $i <= 12; $i ++){
                 $register = new Register;
-                $register -> user_id = Auth::user()->id;
-                $register -> value = $request->value;
-                $register -> category_id = $request->category;
-                $register -> attribute = $request->attribute;
-                $register -> type = $request->type;
+                
+                $register->value = $request->value;
+                $register->category_id = $request->category;
+                $register->attribute = $request->attribute;
+                $register->type = $request->type;
                 $date = Carbon::parse($date)->addDays(30);
-                $register -> date =  $date;
-                $register -> save();
+                $register->date =  $date;
+                $register->save();
             }
         } else{
-            $register -> attribute = false;
-            $register -> date = $request->date;
-            $register -> save();
+            $register->attribute = false;
+            $register->date = $request->date;
+            $register->save();
         }
         return redirect('/registers/create');
     }
