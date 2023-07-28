@@ -43,7 +43,7 @@ class RegisterController extends Controller
             $date = $request->date;
             for($i = 1; $i <= 12; $i ++){
                 $register = new Register;
-                
+                $register->user_id = Auth::user()->id;
                 $register->value = $request->value;
                 $register->category_id = $request->category;
                 $register->attribute = $request->attribute;
