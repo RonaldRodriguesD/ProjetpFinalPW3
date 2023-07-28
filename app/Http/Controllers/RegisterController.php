@@ -12,6 +12,7 @@ use phpDocumentor\Reflection\PseudoTypes\True_;
 class RegisterController extends Controller
 {
     /**
+     * 
      * Display a listing of the resource.
      */
     public function index()
