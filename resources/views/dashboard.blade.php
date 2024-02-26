@@ -9,7 +9,7 @@
 
           <div class="flex flex-row justify-center gap-24">
               <div class="bg-slate-800 text-white rounded-xl py-3 px-8">
-                  <h2 class="pb-2">Total de Lucros:</h2>
+                  <h2 class="pb-2">Total de Ganhos:</h2>
                   <p>R$ 00,00</p>
               </div>
 
@@ -31,6 +31,8 @@
                                       <th scope="col" class="px-6 py-4 text-center">Data</th>
                                       <th scope="col" class="px-6 py-4 text-center">Valor (R$)</th>
                                       <th scope="col" class="px-6 py-4 text-center">Categoria</th>
+                                      <th scope="col" class="px-6 py-4 text-center"></th>
+                                      <th scope="col" class="px-6 py-4 text-center"></th>
                                   </tr>
                               </thead>
                               <tbody>
@@ -40,12 +42,16 @@
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-secondary" value="alterar"></td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-danger" value="deletar"></td>
                                             </tr>
                                         @else
                                         <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600  text-red-500">
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-secondary" value="alterar"></td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-danger" value="deletar"></td>
                                         </tr>
                                         @endif
                                     @endforeach
