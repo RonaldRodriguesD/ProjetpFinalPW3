@@ -90,7 +90,8 @@ class RegisterController extends Controller
      */
     public function destroy(Register $register)
     {
-        //
+        $register = Register::findOrFail($id)->delete();
+        return redirect('/registers/create');
     }
 }
 

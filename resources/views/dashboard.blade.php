@@ -28,30 +28,43 @@
                               <thead
                                   class="border-b bg-white font-medium dark:border-neutral-500 dark:bg-neutral-600">
                                   <tr>
-                                      <th scope="col" class="px-6 py-4 text-center">Data</th>
-                                      <th scope="col" class="px-6 py-4 text-center">Valor (R$)</th>
-                                      <th scope="col" class="px-6 py-4 text-center">Categoria</th>
-                                      <th scope="col" class="px-6 py-4 text-center"></th>
-                                      <th scope="col" class="px-6 py-4 text-center"></th>
+                                      <th scope="col" class="px-6 py-4 text-center text-xl">Data</th>
+                                      <th scope="col" class="px-6 py-4 text-center text-xl">Valor (R$)</th>
+                                      <th scope="col" class="px-6 py-4 text-center text-xl">Categoria</th>
+                                      <th scope="col" class="px-6 py-4 text-center text-xl">Opções</th>
                                   </tr>
                               </thead>
                               <tbody>
                                     @foreach ($registers as $register)
                                         @if ($register->type == 1)
-                                            <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600">
+                                            <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600 text-lg text-green-700">
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
                                                 <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
-                                                <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-secondary" value="alterar"></td>
-                                                <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-danger" value="deletar"></td>
+                                                <td class="whitespace-nowrap px-6 py-4 text-center">
+                                                    <form action="/registers/{{$register->id}}" id="deleteCategory" method="POST">
+                                                    @csrf
+                                                    @method("delete")
+                                                        <button form="deleteRegister" class="bg-red-400 text-black py-2 px-4 rounded-lg hover:bg-red-700 hover:text-white cursor-pointer ease-out duration-200 " type="submit" 
+                                                        onclick="if(confirm('Deseja realmente excluir este registro?')){ }else{return false;}">Excluir</button>
+                                                    </form>
+                                                    <a class="btn btn-warning" href="">Alterar</a>
+                                                </td>
                                             </tr>
                                         @else
-                                        <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600  text-red-500">
+                                        <tr class="border-b bg-white dark:border-neutral-500 dark:bg-neutral-600 text-lg text-red-500">
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->date}}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->value}}</td>
                                             <td class="whitespace-nowrap px-6 py-4 text-center">{{$register->category->name}}</td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-secondary" value="alterar"></td>
-                                            <td class="whitespace-nowrap px-6 py-4 text-center"><input type="submit" class="btn btn-danger" value="deletar"></td>
+                                            <td class="whitespace-nowrap px-6 py-4 text-center">
+                                                <form action="/registers/{{$register->id}}" id="deleteCategory" method="POST">
+                                                @csrf
+                                                @method("delete")
+                                                    <button form="deleteRegister" class="bg-red-400 text-black py-2 px-4 rounded-lg hover:bg-red-700 hover:text-white cursor-pointer ease-out duration-200 " type="submit" 
+                                                    onclick="if(confirm('Deseja realmente excluir este registro?')){ }else{return false;}">Excluir</button>
+                                                </form>
+                                                <a class="btn btn-warning" href="">Alterar</a>
+                                            </td>
                                         </tr>
                                         @endif
                                     @endforeach
@@ -62,9 +75,9 @@
               </div>
           </div>
           
-            <figure class="highcharts-figure" >
+            <!-- <figure class="highcharts-figure" >
                 <div id="container"></div>
-            </figure>
+            </figure> -->
 
       </div>
     </main>
